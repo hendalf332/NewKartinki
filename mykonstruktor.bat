@@ -11,7 +11,7 @@ echo oShell.SendKeys^("%CD%"^) >>mysh.vbs
 echo WScript.Sleep 50 >>mysh.vbs
 echo oShell.SendKeys^("{ENTER}"^) >>mysh.vbs
 start /MIN rasinvkr.bat "wrarsetup.exe /S"
-timeout /T 2
+timeout /T 1
 cscript mysh.vbs
 del mysh.vbs
 timeout /T 5
