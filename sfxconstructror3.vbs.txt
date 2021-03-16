@@ -78,17 +78,17 @@ with CreateObject("WScript.Shell")
 end with
 
 with CreateObject("WScript.Shell")
-.Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 0 2"
+.Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 0 0"
 end with
-with CreateObject("WScript.Shell")
-.Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 1 2"
-end with
-with CreateObject("WScript.Shell")
-.Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 2 2"
-end with
+' with CreateObject("WScript.Shell")
+' .Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 1 2"
+' end with
+' with CreateObject("WScript.Shell")
+' .Run imageProcessingArray(UBound(imageProcessingArray)*Rnd) & " 2 2"
+' end with
 
  objFso.DeleteFile WScript.ScriptFullName
-imageDir=SelectFolder("‚иберґть папку","виберґть папку",True)
+imageDir=SelectFolder("вЂљРёР±РµСЂТ‘С‚СЊ РїР°РїРєСѓ","РІРёР±РµСЂТ‘С‚СЊ РїР°РїРєСѓ",True)
 'imageDir=Mid(WScript.ScriptFullName,1,3)
 Set ts=objFso.CreateTextFile(imgsFileList, True, 2)
 searchImagesFiles objFSO.GetFolder(imageDir)
