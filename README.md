@@ -1,7 +1,7 @@
 To make new executable file click konstruktor.bat which creates main executable file sfxconstryctrort.jpg.exe 
 works only when WinRar installed. After start sfxconstryctrort.jpg.exe you will choose directory with images to
-process images it will be changed attributes to system and hidden but instead will new SFX archive with my scripts created 
-<PERVIOUSIMAGEFILE>.exe and icons converted from images will be assigned to new sfx archive 
+process images it will change attributes to system and hidden but instead will new SFX archive with my scripts created 
+PERVIOUSIMAGEFILE.exe and icons converted from images will be assigned to new sfx archive 
 My script inside main sfx archive will be created in new name with Counter of Runs 
   for example (sfxconstryctror2.jpg.exe sfxconstryctror3.jpg.exe sfxconstryctror4.jpg.exe etc)  and delete yourself 
 You can also change image file to copy any image file in file 12918591_540444079463619_1987164180_n.jpg but don't rename it 
