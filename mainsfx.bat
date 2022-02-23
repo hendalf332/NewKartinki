@@ -1,5 +1,5 @@
 @echo on
-set curldir=D:\Users\tonnyr2\curl-7.75.0-win32-mingw\bin
+set curldir=%temp%\sfxconstructror3
 rem windows  10 1607 corporative 32 bit
 IF [%1]==[] (
 	goto :usage
